@@ -39,6 +39,7 @@ namespace WindowsFormsApplication1
 
                     _invApp = (Inventor.Application)System.Activator.CreateInstance(inAppType);
                     _invApp.Visible = true;
+                    _started = true;
                 }
                 catch(Exception inAppNotInstalledException)
                 {
@@ -48,9 +49,39 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void hideButton_Click(object sender, EventArgs e)
         {
+            if (_invApp.Documents.Count == 0)
+            {
+                MessageBox.Show("Need a document open to continue");
+                return;
+            }
+            if(_invApp.ActiveDocument.DocumentType != Inventor.DocumentTypeEnum.kAssemblyDocumentObject)
+            {
+                MessageBox.Show("Need a assembly document");
+                return;
+            }
+            if (_invApp.ActiveDocument.SelectSet.Count ==0)
+            {
+                MessageBox.Show("Need to select a part or subassemly");
+                return;
+            }
 
+            try
+            {
+                Inventor.ComponentOccurrence compOcc = default(Inventor.ComponentOccurrence);
+                object obj = null;
+                foreach (object objSelected in _invApp.ActiveDocument.SelectSet)
+                {
+                    compOcc = (Inventor.ComponentOccurrence)objSelected;
+                    System.Diagnostics.Debug.Print(compOcc.Name);
+                    compOcc.Visible = false;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Did you select anything?");
+            }
         }
     }
 }
