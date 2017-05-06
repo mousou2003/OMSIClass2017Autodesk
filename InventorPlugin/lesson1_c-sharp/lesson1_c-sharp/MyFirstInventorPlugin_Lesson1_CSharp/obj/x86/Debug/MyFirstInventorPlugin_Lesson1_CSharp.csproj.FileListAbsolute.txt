@@ -1,0 +1,7 @@
+C:\Users\Instructor\Documents\GitHub\OMSIClass2017Autodesk\InventorPlugin\lesson1_c-sharp\lesson1_c-sharp\MyFirstInventorPlugin_Lesson1_CSharp\bin\Debug\MyFirstInventorPlugin_Lesson1_CSharp.exe
+C:\Users\Instructor\Documents\GitHub\OMSIClass2017Autodesk\InventorPlugin\lesson1_c-sharp\lesson1_c-sharp\MyFirstInventorPlugin_Lesson1_CSharp\bin\Debug\MyFirstInventorPlugin_Lesson1_CSharp.pdb
+C:\Users\Instructor\Documents\GitHub\OMSIClass2017Autodesk\InventorPlugin\lesson1_c-sharp\lesson1_c-sharp\MyFirstInventorPlugin_Lesson1_CSharp\obj\x86\Debug\MyFirstInventorPlugin_Lesson1_CSharp.Form1.resources
+C:\Users\Instructor\Documents\GitHub\OMSIClass2017Autodesk\InventorPlugin\lesson1_c-sharp\lesson1_c-sharp\MyFirstInventorPlugin_Lesson1_CSharp\obj\x86\Debug\MyFirstInventorPlugin_Lesson1_CSharp.Properties.Resources.resources
+C:\Users\Instructor\Documents\GitHub\OMSIClass2017Autodesk\InventorPlugin\lesson1_c-sharp\lesson1_c-sharp\MyFirstInventorPlugin_Lesson1_CSharp\obj\x86\Debug\MyFirstInventorPlugin_Lesson1_CSharp.csproj.GenerateResource.Cache
+C:\Users\Instructor\Documents\GitHub\OMSIClass2017Autodesk\InventorPlugin\lesson1_c-sharp\lesson1_c-sharp\MyFirstInventorPlugin_Lesson1_CSharp\obj\x86\Debug\MyFirstInventorPlugin_Lesson1_CSharp.exe
+C:\Users\Instructor\Documents\GitHub\OMSIClass2017Autodesk\InventorPlugin\lesson1_c-sharp\lesson1_c-sharp\MyFirstInventorPlugin_Lesson1_CSharp\obj\x86\Debug\MyFirstInventorPlugin_Lesson1_CSharp.pdb
