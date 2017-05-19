@@ -1,0 +1,10 @@
+#Field
+2016 Stronghold
+#Nodes
+node_7.bxda
+node_0.bxda
+#Vectors
+0|2.2|1
+-3|2|-5
+#Gamepieces
+GE-16180
