@@ -243,7 +243,38 @@ public class DynamicCamera : MonoBehaviour
 
 	}
 
-	void Start ()
+    /// <summary>
+    /// Derives from CameraState to create a first person view from the robot.
+    /// </summary>
+    public class SatelliteState : CameraState
+    {
+        private GameObject robot;
+        private static Vector3 overlookVector = new Vector3(0f, 5f, 0f);
+
+        public SatelliteState(MonoBehaviour mono)
+        {
+            this.mono = mono;
+        }
+
+        public override void Init()
+        {
+            if (robot == null) robot = GameObject.Find("Robot");
+            if (robot == null) throw new System.Exception("Robot GameObject doesn't exist");
+        }
+
+        public override void Update()
+        {
+            Vector3 robotPosition = auxFunctions.TotalCenterOfMass(robot);
+            mono.transform.position = overlookVector + robotPosition;
+            mono.transform.LookAt(robotPosition);
+        }
+
+        public override void End()
+        {
+        }
+
+    }
+    void Start ()
 	{
 		SwitchCameraState(new DriverStationState(this));
         transform.GetComponent<Camera>().backgroundColor = new Color(0.4f, 0.6f, 0.8f);
@@ -258,6 +289,7 @@ public class DynamicCamera : MonoBehaviour
             {
                 if (cameraState.GetType().Equals(typeof(DriverStationState))) SwitchCameraState(new OrbitState(this));
                 else if (cameraState.GetType().Equals(typeof(OrbitState))) SwitchCameraState(new FreeroamState(this));
+                else if (cameraState.GetType().Equals(typeof(FreeroamState))) SwitchCameraState(new SatelliteState(this));
                 else SwitchCameraState(new DriverStationState(this));
             }
 		}

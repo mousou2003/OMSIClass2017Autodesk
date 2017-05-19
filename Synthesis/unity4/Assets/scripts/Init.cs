@@ -293,7 +293,7 @@ public class Init : MonoBehaviour
             }
 
 			gui.AddWindow ("Switch View", new DialogWindow("Switch View",
-			    "Driver Station", "Orbit Robot", "Freeroam"), (object o) =>
+			    "Driver Station", "Orbit Robot", "Freeroam", "Satellite"), (object o) =>
 			    {
 					HideGuiSidebar();
 
@@ -308,7 +308,10 @@ public class Init : MonoBehaviour
 					case 2:
 						dynamicCamera.SwitchCameraState(new DynamicCamera.FreeroamState(dynamicCamera));
 						break;
-					default:
+                    case 3:
+                        dynamicCamera.SwitchCameraState(new DynamicCamera.SatelliteState(dynamicCamera));
+                        break;
+                        default:
 						Debug.Log("Camera state not found: " + (string) o);
 						break;
 					}
