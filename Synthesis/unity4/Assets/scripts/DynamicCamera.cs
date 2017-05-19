@@ -258,7 +258,7 @@ public class DynamicCamera : MonoBehaviour
 
         public override void Init()
         {
-            if (robot == null) robot = GameObject.Find("Robot");
+            robot = GameObject.Find("Robot");
             if (robot == null) throw new System.Exception("Robot GameObject doesn't exist");
         }
 
