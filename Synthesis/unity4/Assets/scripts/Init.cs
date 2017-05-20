@@ -293,8 +293,9 @@ public class Init : MonoBehaviour
             }
 
 			gui.AddWindow ("Switch View", new DialogWindow("Switch View",
-			    "Driver Station", "Orbit Robot", "Freeroam"), (object o) =>
-			    {
+			    "Driver Station", "Orbit Robot", "Freeroam", "Satellite"), (object o) =>
+
+                {
 					HideGuiSidebar();
 
 					switch ((int) o) {
@@ -481,7 +482,7 @@ public class Init : MonoBehaviour
 			mainNode.rigidbody.inertiaTensorRotation = Quaternion.identity;
 
             //makes sure robot spawns in the correct place
-            mainNode.transform.position = new Vector3(-2f, 1f, -3f);
+            mainNode.transform.position = new Vector3(0f, 1f, 0f);
 
             mainNode.rigidbody.isKinematic = true;
             StartCoroutine(FinishReset());

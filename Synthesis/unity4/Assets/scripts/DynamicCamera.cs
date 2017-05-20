@@ -48,10 +48,47 @@ public class DynamicCamera : MonoBehaviour
 		public abstract void End ();
 	}
 
-	/// <summary>
-	/// Derives from CameraState to create a view from the Driver Station.
-	/// </summary>
-	public class DriverStationState : CameraState
+    /// <summary>
+    /// Camera hovering above the robot
+    /// </summary>
+    public class SateliteCameraState:CameraState
+    {
+        GameObject robot;
+
+        public SateliteCameraState(MonoBehaviour mono)
+        {
+            this.mono = mono;
+        }
+
+        /// <summary>
+        /// Init this instance (will be called in SwitchCameraMode()).
+        /// </summary>
+        public override void Init()
+        {
+            robot = GameObject.Find("Robot");
+            if (robot == null) throw new System.Exception("Robot GameObject doesn't exist");
+        }
+
+        /// <summary>
+        /// Update this instance (will be called in Update()).
+        /// </summary>
+        public override void Update()
+        {
+            Vector3 robotPosition = auxFunctions.TotalCenterOfMass(robot);
+            mono.transform.position = robotPosition + new Vector3(0f, 5f, 0f);
+            mono.transform.LookAt(robotPosition);
+        }
+
+        /// <summary>
+        /// End this instance (will be called in SwitchCameraMode()).
+        /// </summary>
+        public override void End()
+        { }
+    }
+    /// <summary>
+    /// Derives from CameraState to create a view from the Driver Station.
+    /// </summary>
+    public class DriverStationState : CameraState
 	{
 
 		GameObject robot;
@@ -258,6 +295,7 @@ public class DynamicCamera : MonoBehaviour
             {
                 if (cameraState.GetType().Equals(typeof(DriverStationState))) SwitchCameraState(new OrbitState(this));
                 else if (cameraState.GetType().Equals(typeof(OrbitState))) SwitchCameraState(new FreeroamState(this));
+                else if (cameraState.GetType().Equals(typeof(FreeroamState))) SwitchCameraState(new SateliteCameraState(this));
                 else SwitchCameraState(new DriverStationState(this));
             }
 		}

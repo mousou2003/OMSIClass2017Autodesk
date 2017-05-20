@@ -276,7 +276,7 @@ public class InitDPM : MonoBehaviour
             }
 
             gui.AddWindow("Switch View", new DialogWindow("Switch View",
-                "Driver Station [D]", "Orbit Robot [R]", "Freeroam [F]"), (object o) =>
+                "Driver Station [D]", "Orbit Robot [R]", "Freeroam [F]", "Satellite [S]"), (object o) =>
                 {
                     HideGuiSidebar();
 
