@@ -1,26 +1,3 @@
-#################
-## Eclipse
-#################
-
-*.pydevproject
-.project
-.metadata
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.classpath
-.settings/
-.loadpath
-Library/
-**/Library/
-**/Temp/
-**/Build_Data
-*.exe
-*.csproj
 
 # =============== #
 # Unity generated #
@@ -202,7 +179,6 @@ $RECYCLE.BIN/
 .cproject
 .settings
 .csettings
-Assets/Scene/Scene.unity
 
 #generated documentation
 codeDocs/*
